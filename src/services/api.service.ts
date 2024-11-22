@@ -2,9 +2,12 @@ import {IMovie, ITMDBResponse} from "@/types";
 
 const base: string = 'https://api.themoviedb.org/3';
 
+const poster: string = 'https://image.tmdb.org/t/p/w500';
+
 const urlBuilder = {
     movieBaseUrl: '/discover/movie',
-    allMovies: () => base + urlBuilder.movieBaseUrl
+    allMovies: () => base + urlBuilder.movieBaseUrl,
+    poster: (path: string) => poster + path
 };
 
 const movieService = {
@@ -21,11 +24,10 @@ const movieService = {
         ).then(value => value.json());
 
         return movies;
-
-
     }
 }
 
 export {
-    movieService
+    movieService,
+    urlBuilder
 }
