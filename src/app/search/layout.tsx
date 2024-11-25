@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = { children: React.ReactNode };
 
-const MoviesLayout = ({children}: Props) => {
+const SearchResultsLayout = ({children}: Props) => {
     return (
         <div>
             {children}
@@ -10,4 +10,4 @@ const MoviesLayout = ({children}: Props) => {
     );
 };
 
-export default MoviesLayout;
+export default SearchResultsLayout;

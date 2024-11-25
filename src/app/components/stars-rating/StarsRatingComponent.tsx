@@ -1,6 +1,6 @@
 'use client';
 import React, {FC, useState} from 'react';
-import styles from '@/components/stars-rating/StarsRatingComponent.module.css';
+import styles from '@/app/components/stars-rating/StarsRatingComponent.module.css';
 
 interface StarRatingProps {
     initialScore?: number; // Початковий рейтинг (0-10)

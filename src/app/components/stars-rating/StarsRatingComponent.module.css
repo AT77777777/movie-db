@@ -1,14 +1,14 @@
 .starContainer {
     display: flex;
     gap: 4px;
-    cursor: pointer; /* Вказівник для інтерактивності */
+    cursor: pointer;
 }
 
 .star {
     position: relative;
     width: 30px;
     height: 30px;
-    background-color: lightgray; /* Колір порожньої зірки */
+    background-color: lightgray;
     clip-path: polygon(
             50% 0%,
             61% 35%,
@@ -29,12 +29,12 @@
     top: 0;
     left: 0;
     height: 100%;
-    background-color: gold; /* Колір заповненої частини */
-    clip-path: inherit; /* Та сама форма зірки */
-    transition: width 0.2s; /* Плавна зміна ширини */
+    background-color: gold;
+    clip-path: inherit;
+    transition: width 0.2s;
     z-index: 1;
 }
 
 .star:hover {
-    background-color: #f4d03f; /* Світло-золотистий колір при наведенні */
+    background-color: #f4d03f;
 }

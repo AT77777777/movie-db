@@ -1,4 +1,4 @@
-export type ITMDBResponse = {
+export type ITMDBBaseResponse = {
         page: number,
         results: IMovie[],
         total_pages: number,
@@ -9,6 +9,7 @@ export interface IMovie {
     adult: boolean,
     backdrop_path: string,
     genre_ids: number[],
+    genres: IGenre[],
     id: number,
     original_language: string,
     original_title: string,
@@ -20,5 +21,14 @@ export interface IMovie {
     video: boolean,
     vote_average: number,
     vote_count: number
+}
+
+export type IGenresResponse = {
+    genres: IGenre[]
+}
+
+export interface IGenre {
+    id: number,
+    name: string
 }
 
