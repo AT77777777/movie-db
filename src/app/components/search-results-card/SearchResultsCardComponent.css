@@ -1,0 +1,32 @@
+.search-results-card{
+    width: 348px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 1px solid #969696;
+    opacity: 0.95;
+    background: linear-gradient(100deg, #FFF 12.94%, rgba(255, 255, 255, 0.00) 159.1%);
+    backdrop-filter: blur(10px);
+    margin-bottom: 24px;
+}
+
+.search-results-card-inner-container{
+    padding: 0 10px 10px;
+}
+
+.movie-title{
+    color: #000;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+
+.card-span{
+    color: #000;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+}
+

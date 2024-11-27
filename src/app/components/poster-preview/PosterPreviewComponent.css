@@ -1,0 +1,17 @@
+.poster {
+    width: 348px;
+    border-radius: 20px;
+    border: 1px solid #969696;
+}
+
+.poster-preview{
+    width: 253px;
+    border-radius: 20px 20px 0 0;
+
+}
+
+.search-results-poster{
+    width: 346px;
+    border-radius: 20px 20px 0 0;
+}
+

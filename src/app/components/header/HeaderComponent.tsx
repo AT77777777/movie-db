@@ -1,11 +1,12 @@
 import React from 'react';
-import SearchComponent from "@/app/components/search/SearchComponent";
 import '@/app/components/header/HeaderComponent.css'
+import UserInfoComponent from "@/app/components/user-info/UserInfoComponent";
 
 const HeaderComponent = () => {
     return (
         <div className={'header'}>
-            <SearchComponent/>
+            <UserInfoComponent/>
+
         </div>
     );
 };

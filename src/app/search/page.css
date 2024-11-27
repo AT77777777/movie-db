@@ -1,15 +1,14 @@
-.movie-list {
+.search-results{
     width: 100%;
     min-width: 1140px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-
 }
 
-.movie-list-container{
-    height: 100%;
+.search-results-container{
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -18,3 +17,13 @@
     padding: 0 24px;
 }
 
+.search-results-title{
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

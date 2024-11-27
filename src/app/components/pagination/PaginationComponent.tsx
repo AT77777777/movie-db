@@ -1,7 +1,8 @@
 'use client';
 import React, {FC} from 'react';
 import Link from "next/link";
-import styles from "@/app/components/pagination/PaginationComponent.module.css"
+import "@/app/components/pagination/PaginationComponent.css"
+import {useSearchParams} from "next/navigation";
 
 interface PaginationProps {
     currentPage: number;
@@ -24,25 +25,20 @@ const PaginationComponent: FC<PaginationProps> = ({
         const totalVisiblePages = siblingCount * 2 + 1; // Загальна кількість видимих сторінок (поточна + сусіди)
         const pages = [];
 
-        // Обчислюємо діапазон сторінок
         const startPage = Math.max(1, currentPage - siblingCount);
         const endPage = Math.min(totalPages, currentPage + siblingCount);
 
-        // Якщо загальна кількість сторінок менша за видимі сторінки, показуємо всі
         if (totalPages <= totalVisiblePages) {
             for (let i = 1; i <= totalPages; i++) {
                 pages.push(i);
             }
         } else {
-            // Додаємо сторінки в межах видимого діапазону
             for (let i = startPage; i <= endPage; i++) {
                 pages.push(i);
             }
 
-            // Якщо є пропуски на початку, додаємо "..."
             if (startPage > 1) pages.unshift(-1);
 
-            // Якщо є пропуски в кінці, додаємо "..."
             if (endPage < totalPages) pages.push(-2);
         }
 
@@ -51,8 +47,10 @@ const PaginationComponent: FC<PaginationProps> = ({
 
     const pageNumbers = getPageNumbers();
 
+    const params: string | null = useSearchParams().get('page');
+
     return (
-        <div>
+        <div className={'pagination'}>
             {currentPage > 1 && (
                 <Link
                     href={
@@ -64,19 +62,20 @@ const PaginationComponent: FC<PaginationProps> = ({
                                 }
                             }
                     }
-                    className="pagination-link">
-                    &laquo; Prev
+                    className={'pagination-link'}
+                    >
+                    &#10094;
                 </Link>
             )}
 
             {pageNumbers.map((page) =>
                 page === -1 ? (
-                    <span key="start-ellipsis">...</span>
+                    <span key="start-ellipsis" className={'pagination-span'}>...</span>
                 ) : page === -2 ? (
-                    <span key="end-ellipsis">...</span>
+                    <span key="end-ellipsis" className={'pagination-span'}>...</span>
                 ) : (
-                    <span key={page}>
                         <Link
+                            key={page}
                             href={
                                     {
                                         pathname: `${basePath}`,
@@ -86,11 +85,10 @@ const PaginationComponent: FC<PaginationProps> = ({
                                     }
                                 }
                             }
-                            className={`pagination-link ${page === currentPage ? "active" : ""}`}
+                            className={ page.toString() === params || page === 1 ? 'active': 'pagination-link' }
                         >
                             {page}
                         </Link>
-                    </span>
                 )
             )}
 
@@ -103,16 +101,17 @@ const PaginationComponent: FC<PaginationProps> = ({
                                 ...(genre && { with_genres: genre }),
                                 ...(search && { query: search })
                                 }
+                            }
                         }
-                    }
-                    className="pagination-link">
-                        Next &raquo;
+                    className={'pagination-link'}
+                    >
+                    &#10095;
                 </Link>
             )}
 
-            <p>
+            <span className={'pagination-span'}>
                 Page {currentPage} of {totalPages}
-            </p>
+            </span>
         </div>
     );
 };

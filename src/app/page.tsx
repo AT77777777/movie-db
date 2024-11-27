@@ -1,5 +1,3 @@
-import styles from "./page.module.css";
-
 import MoviesListComponent from "@/app/components/movies-list/MoviesListComponent";
 import React, {FC} from "react";
 

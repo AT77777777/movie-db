@@ -7,11 +7,11 @@ interface StarRatingProps {
 }
 
 const StarRatingComponent: FC<StarRatingProps> = ({ initialScore = 0 }) => {
-    const [hoveredRating, setHoveredRating] = useState<number>(0); // Рейтинг під час наведення
-    const displayedRating = hoveredRating || initialScore / 2; // Відображуваний рейтинг
+    const [hoveredRating, setHoveredRating] = useState<number>(0);
+    const displayedRating = hoveredRating || initialScore / 2;
 
     const handleMouseEnter = (index: number) => setHoveredRating(index + 1); // Наведення на зірку
-    const handleMouseLeave = () => setHoveredRating(0); // Вихід миші
+    const handleMouseLeave = () => setHoveredRating(0);
 
     return (
         <div className={styles.starContainer}>

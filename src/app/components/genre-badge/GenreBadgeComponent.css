@@ -1,0 +1,13 @@
+.genre-badge{
+    display: inline-flex;
+    padding: 9px 12px;
+    align-items: flex-start;
+    gap: 12px;
+    color: #FFFFFF;
+    border-radius: 14px;
+    background: #6100C2;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+}

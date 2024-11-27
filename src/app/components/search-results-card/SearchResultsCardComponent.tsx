@@ -1,9 +1,8 @@
 import React, {FC} from 'react';
 import Link from "next/link";
 import PosterPreviewComponent from "@/app/components/poster-preview/PosterPreviewComponent";
-import StarsRatingComponent from "@/app/components/stars-rating/StarsRatingComponent";
-import GenreBadgeComponent from "@/app/components/genre-badge/GenreBadgeComponent";
 import {IGenre, IMovie} from "@/types";
+import '@/app/components/search-results-card/SearchResultsCardComponent.css'
 
 type Props = {
     movie: IMovie,
@@ -16,17 +15,19 @@ const SearchResultsCardComponent: FC<Props> = ({movie, genre}) => {
         query: {id: `${movie.id}`, title: `${movie.title.toLowerCase().replace(/[.,\/#!$%^&*;:{}=\-_`~()'"\s]+/g, "-").replace(/-+/g, "-")}`}
     };
 
+    const year = new Date(movie.release_date).getFullYear();
+
     return (
-        <div>
+        <div className={'search-results-card'}>
             {!movie.poster_path || <Link href={href}>
                 <PosterPreviewComponent path={movie.poster_path} title={movie.title}/>
             </Link>}
-            <Link href={href}>
-                {movie.title}
-            </Link>
-            {movie.release_date}
-            {!movie.vote_average || <StarsRatingComponent initialScore={movie.vote_average}/>}
-            {!genre || <GenreBadgeComponent genre={genre}/>}
+            <div className={'search-results-card-inner-container'}>
+                <Link href={href}>
+                    <h2 className={'movie-title'}>{movie.title}</h2>
+                </Link>
+                <span className={'card-span'}>{!year || year} {genre && year ? '|' : ''} {!genre || genre.name}</span>
+            </div>
         </div>
     );
 };
