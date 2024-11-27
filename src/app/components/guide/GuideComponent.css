@@ -7,7 +7,7 @@
     align-items: start;
     gap: 20px;
     background: #21201E;
-    box-shadow: 2px 0px 90px 0px rgba(97, 0, 194, 0.40);
+    box-shadow: 2px 0 90px 0 rgba(97, 0, 194, 0.40);
 }
 
 .logo{
